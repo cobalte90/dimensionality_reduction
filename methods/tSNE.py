@@ -82,7 +82,7 @@ class tSNE:
             
             new_space -= self.lr * grad
 
-            if verbose and iter % 100 == 0:
+            if verbose and (iter % 100 == 0 and iter != 0) or iter == 0 or iter == self.GD_iters - 1:
                 loss = self._loss(orig_space_sim, new_space_sim)
                 print(f"Iteration: {iter + 1}. Loss = {loss}")
         
